@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 15px;
+            min-height: 50px; 
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Gerador de tabuada</h1>
+    <p id="tabuadaResultado">resultado.</p>
+    <script>
+    function gerarTabuada(){
+        const numeroDigitado = prompt("Digite um número para ver sua tabuada:");
+    
+        const resultado = document.getElementById("tabuadaResultado");
+    
+        const numero = parseInt(numeroDigitado);
+    
+        if (isNaN(numero)) {
+            console.log("Entrada inválida: não é um número.");
+            resultado.textContent = "Por favor, digite um número válido.";
+            resultado.classList.add("error");
+            return;
+        }
+        console.log(`Tabuada do ${numero}:`);
+    
+        let textoTabuada = `Tabuada do ${numero}:\n\n`;
+        for (let i = 1; i <= 10; i++){
+            const resultado = numero * i;
+            console.log(`${numero} x ${i} = ${resultado}`);
+            textoTabuada += `${numero} x ${i} = ${resultado}\n`;
+        }
+            
+        resultado.textContent = textoTabuada;
+        resultado.classList.remove("error");
+    }
+    gerarTabuada();
+    </script>
+    
+</body>
+</html>
